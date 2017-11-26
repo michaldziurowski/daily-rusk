@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getJoke, getComic, FEED_TYPE_JOKE } from '../utils/ruskapi';
+import { getCachedFeed, cacheFeedItem } from '../utils/cache';
 import JokeFeedItem from './JokeFeedItem';
 import ComicFeedItem from './ComicFeedItem';
 
@@ -15,11 +16,15 @@ class Feed extends React.Component {
 
         this.addJoke = this.addJoke.bind(this);
         this.addComic = this.addComic.bind(this);
+        this.cacheAndState = this.cacheAndState.bind(this);
     }
 
     componentWillMount() {
-        this.jokesInterval = setInterval(this.addJoke, 8000);
-        this.comicInterval = setInterval(this.addComic, 14000);
+        getCachedFeed().then((feed) => {
+            this.setState({ feed });
+            this.jokesInterval = setInterval(this.addJoke, 8000);
+            this.comicInterval = setInterval(this.addComic, 14000);
+        });
     }
 
     componentWillUnmount() {
@@ -27,14 +32,22 @@ class Feed extends React.Component {
         clearInterval(this.comicInterval);
     }
 
+    cacheAndState(feedItem) {
+        if (feedItem.type) {
+            return cacheFeedItem(feedItem).then(() => this.setState({ feed: [...this.state.feed, feedItem] }));
+        }
+
+        return null;
+    }
+
     addJoke() {
         return getJoke()
-            .then(newJoke => this.setState({ feed: [...this.state.feed, newJoke] }));
+            .then(newJoke => this.cacheAndState(newJoke));
     }
 
     addComic() {
         return getComic()
-            .then(newComic => this.setState({ feed: [...this.state.feed, newComic] }));
+            .then(newComic => this.cacheAndState(newComic));
     }
 
     render() {
