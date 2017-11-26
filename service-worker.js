@@ -23,10 +23,26 @@ const urlsToCache = [
   });
 
   self.addEventListener('fetch', (event) => {
-      // cache media also
-    event.respondWith(
+    const request = event.request;
+    if (request.url.endsWith('.jpg')) {
+      event.respondWith(
+        caches.open(MEDIA_CACHE_NAME).then((cache) =>
+          cache.match(request).then((imgresponse) => {
+            if (imgresponse) return imgresponse;
+  
+            return fetch(request).then((img) => {
+              cache.put(request, img.clone());
+              return img;
+            })
+          })
+        )
+      )
+    } else {
+      event.respondWith(
         caches.match(event.request).then((response) => {
-          return response || fetch(event.request);
+          if (response) return response;
+          return fetch(event.request);
         })
-      );   
+      );
+    }
   });
