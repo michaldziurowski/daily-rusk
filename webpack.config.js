@@ -20,6 +20,7 @@ module.exports = {
             { from: 'index.html' },
             { from: 'favicon.ico' },
             { from: 'images', to: 'images' },
+            { from: 'manifest.json' },
         ]),
     ],
     module: {
