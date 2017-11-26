@@ -21,6 +21,7 @@ module.exports = {
             { from: 'favicon.ico' },
             { from: 'images', to: 'images' },
             { from: 'manifest.json' },
+            { from: 'service-worker.js' },
         ]),
     ],
     module: {
