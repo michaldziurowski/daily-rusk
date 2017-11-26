@@ -46,3 +46,7 @@ const urlsToCache = [
       );
     }
   });
+
+  /*
+    attach message event if event data tells you to skip waiting then invoke skipwaiting method on self
+  */

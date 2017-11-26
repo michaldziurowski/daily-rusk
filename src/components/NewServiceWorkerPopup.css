@@ -1,0 +1,31 @@
+.new-sw-popup {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+}
+
+.new-sw-popup .message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+    padding-bottom: 5px;
+}
+
+.new-sw-popup button {
+    background-color: rgb(68, 199, 103); 
+    border-radius: 4px; 
+    border: 1px solid rgb(24, 171, 41); 
+    display: inline-block; 
+    cursor: pointer; 
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    padding: 10px 30px;
+    text-decoration: none;
+}
