@@ -1,0 +1,14 @@
+.joke{
+    width:100%;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (min-width:576px) {
+    font-size: 1em;
+}

@@ -1,0 +1,16 @@
+.container {
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+}
+
+.container .title {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.8em;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width:576px) {
+    font-size: 2.5em;
+}
