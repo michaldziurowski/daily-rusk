@@ -1,5 +1,7 @@
 import localforage from 'localforage';
 
+import { FEED_TYPE_COMIC } from '../utils/ruskapi';
+
 const FEED_CACHE_NAME = 'feed';
 
 export const getCachedFeed = () => localforage.getItem(FEED_CACHE_NAME).then(value => value || []);
