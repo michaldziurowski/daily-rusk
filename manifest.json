@@ -1,10 +1,21 @@
 {
-    "short_name": "",
-    "name": "",
-    "icons": [],
-    "start_url": "",
-    "display": "",
-    "theme_color": "",
-    "background_color": ""
+    "short_name": "dailyRusk",
+    "name": "Daily rusk feed",
+    "icons": [
+      {
+        "src": "images/rusk192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "images/rusk512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
   }
   
