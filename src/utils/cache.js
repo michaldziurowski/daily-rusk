@@ -1,9 +1,24 @@
 import localforage from 'localforage';
 
-export const getCachedFeed = () => {
-    // return promise which resolves to cached items
-};
+const FEED_CACHE_NAME = 'feed';
 
-export const cacheFeedItem = (feedItem) => {
-    // cache feed item return promise when cached, make sure you are only storing 5 items in cache
+export const getCachedFeed = () => localforage.getItem(FEED_CACHE_NAME).then(value => value || []);
+
+export const cacheFeedItem = feedItem => localforage.getItem('feed').then((value) => {
+    const newValue = value ? [...value] : [];
+    if (value === null) {
+        return localforage.setItem(FEED_CACHE_NAME, [feedItem]);
+    }
+
+    if (value.length === 5) {
+        newValue.shift();
+        return localforage.setItem(FEED_CACHE_NAME, [...newValue, feedItem]);
+    }
+
+    newValue.push(feedItem);
+    return localforage.setItem(FEED_CACHE_NAME, newValue);
+});
+
+export const clearMediaCache = () => {
+    // return promise which resolve when caching is finished
 };

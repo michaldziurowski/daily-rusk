@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getJoke, getComic, FEED_TYPE_JOKE } from '../utils/ruskapi';
-import { getCachedFeed, cacheFeedItem } from '../utils/cache';
+import { getCachedFeed, cacheFeedItem, clearMediaCache } from '../utils/cache';
 import JokeFeedItem from './JokeFeedItem';
 import ComicFeedItem from './ComicFeedItem';
 
@@ -47,7 +47,8 @@ class Feed extends React.Component {
 
     addComic() {
         return getComic()
-            .then(newComic => this.cacheAndState(newComic));
+            .then(newComic => this.cacheAndState(newComic))
+            .then(() => clearMediaCache());
     }
 
     render() {
