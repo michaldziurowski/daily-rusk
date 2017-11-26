@@ -1,6 +1,13 @@
 {
     "presets": [
-        "env",
+        [
+            "env",
+            {
+                "targets": {
+                    "chrome": "62"
+                }
+            }
+        ],
         "react"
     ]
 }
