@@ -1,7 +1,7 @@
 import localforage from 'localforage';
 
 export const getCachedFeed = () => {
-    // return promise which resolves to cached items
+    // return promise which resolves to cached items or empty array if non were casched so far
 };
 
 export const cacheFeedItem = (feedItem) => {
