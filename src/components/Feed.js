@@ -18,8 +18,8 @@ class Feed extends React.Component {
     }
 
     componentWillMount() {
-        this.jokesInterval = setInterval(this.addJoke, 8000);
-        this.comicInterval = setInterval(this.addComic, 14000);
+        this.jokesInterval = setInterval(this.addJoke, 2000);
+        this.comicInterval = setInterval(this.addComic, 3000);
     }
 
     componentWillUnmount() {
