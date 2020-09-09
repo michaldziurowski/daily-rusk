@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import ServiceWorkerController from './components/ServiceWorkerController';
+// import { registerServiceWorker } from './utils/swregistration';
 
-ReactDOM.render(<ServiceWorkerController><App /></ServiceWorkerController>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// registerServiceWorker();
